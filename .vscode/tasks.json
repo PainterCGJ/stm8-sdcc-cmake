@@ -51,9 +51,24 @@
             "command": "cmake",
             "args": [
                 "--build",
-                "${workspaceFolder}/build",
+                "${workspaceFolder}/build/stm8l-app",
                 "--target",
                 "clean"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: 彻底清理",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Remove-Item -Path '${workspaceFolder}/build/stm8l-app/source/app/*.ihx','${workspaceFolder}/build/stm8l-app/source/app/*.map','${workspaceFolder}/build/stm8l-app/source/app/*.lk','${workspaceFolder}/build/stm8l-app/source/app/CMakeFiles/stm8l-app.dir/**/*.rel','${workspaceFolder}/build/stm8l-app/source/app/CMakeFiles/stm8l-app.dir/**/*.asm','${workspaceFolder}/build/stm8l-app/source/app/CMakeFiles/stm8l-app.dir/**/*.lst','${workspaceFolder}/build/stm8l-app/source/app/CMakeFiles/stm8l-app.dir/**/*.sym','${workspaceFolder}/build/stm8l-app/source/app/CMakeFiles/stm8l-app.dir/**/*.rst' -ErrorAction SilentlyContinue; Write-Host '清理完成'"
             ],
             "group": "build",
             "presentation": {
