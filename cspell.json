@@ -1,0 +1,53 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "GPIOA",
+    "GPIOB",
+    "GPIOC",
+    "GPIOD",
+    "GPIOE",
+    "GPIOF",
+    "GPIOG",
+    "GPIOH",
+    "GPIOI",
+    "GPIO",
+    "GPIOPin",
+    "GPIOMode",
+    "STM8",
+    "STM8L",
+    "STM8S",
+    "STM8L15x",
+    "STM8L10x",
+    "stm8l15x",
+    "stm8l10x",
+    "stm8s",
+    "StdPeriph",
+    "Periph",
+    "ToggleBits",
+    "SetBits",
+    "ResetBits",
+    "ReadInputData",
+    "ReadOutputData"
+  ],
+  "ignoreWords": [
+    "GPIOE",
+    "GPIOC",
+    "GPIOA",
+    "GPIOB",
+    "GPIOD",
+    "GPIOF",
+    "GPIOG",
+    "GPIOH",
+    "GPIOI"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "build/**",
+    "**/build/**",
+    "**/.cmake/**",
+    "**/*.cmake",
+    "**/CMakeFiles/**"
+  ]
+}
+

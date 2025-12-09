@@ -1,0 +1,84 @@
+{
+    // 禁用Microsoft C/C++插件（使用clangd代替）
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.formatting": "disabled",
+    
+    // clangd配置
+    "clangd.path": "clangd",
+    "clangd.arguments": [
+        // clangd会自动查找compile_commands.json（从当前文件向上查找到工作区根目录）
+        "--background-index",
+        "--clang-tidy",
+        "--clang-tidy-checks=-readability-identifier-naming,-readability-identifier-length",
+        "--completion-style=detailed",
+        "--header-insertion=iwyu",
+        "--pch-storage=memory"
+    ],
+    "clangd.fallbackFlags": [
+        "-std=c99"
+    ],
+    // 启用clangd
+    "clangd.enable": true,
+    
+    // CMake Tools配置
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.generator": "Ninja",
+    // 如果需要指定特定的CMake路径，取消下面的注释并设置路径
+    // "cmake.cmakePath": "",
+    // 优先使用CMake预设
+    "cmake.useCMakePresets": "always",
+    // 备用配置（如果未使用预设）
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/cmake/sdcc-generic.cmake",
+        "CMAKE_MODULE_PATH": "${workspaceFolder}/cmake",
+        "STM8_CHIP": "stm8l052c6",
+        "STM8_StdPeriph_DIR": "${workspaceFolder}/StdPeriph"
+    },
+    
+    // 文件关联
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c"
+    },
+    
+    // 编辑器配置
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "files.eol": "\n",
+    
+    // 排除构建目录
+    "files.exclude": {
+        "**/build": true,
+        "**/.cmake": true
+    },
+    
+    // 搜索排除
+    "search.exclude": {
+        "**/build": true,
+        "**/.cmake": true
+    },
+    
+    // Code Spell Checker 配置（如果安装了该扩展）
+    "cSpell.enabled": true,
+    "cSpell.language": "en",
+    "cSpell.words": [
+        // STM8 GPIO 相关
+        "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIOI",
+        "GPIO", "GPIOPin", "GPIOMode",
+        // STM8 芯片相关
+        "STM8", "STM8L", "STM8S", "STM8L15x", "STM8L10x",
+        "stm8l15x", "stm8l10x", "stm8s",
+        // STM8 外设相关
+        "StdPeriph", "Periph",
+        // 其他常见标识符
+        "ToggleBits", "SetBits", "ResetBits", "ReadInputData", "ReadOutputData"
+    ],
+    "cSpell.ignoreWords": [
+        "GPIOE", "GPIOC", "GPIOA", "GPIOB", "GPIOD", "GPIOF", "GPIOG", "GPIOH", "GPIOI"
+    ]
+}
+
+

@@ -1,0 +1,75 @@
+# clangd配置文件
+# 用于STM8项目的代码导航和静态检查
+# 注意：主要配置来自compile_commands.json，此文件用于补充设置
+
+# 编译标志（补充compile_commands.json）
+CompileFlags:
+  # 添加编译标志
+  Add:
+    # C标准
+    - -std=c99
+    # 编译器定义（STM8相关，可根据实际芯片型号调整）
+    - -D__SDCC__
+    - -DSTM8L05X_MD_VL
+    # 包含路径（如果compile_commands.json不存在，使用这些路径）
+    # 注意：clangd 会相对于 .clangd 文件所在目录解析相对路径
+    # 由于 .clangd 在工作区根目录，相对路径从这里开始
+    - -Istm8l-gpio
+    - -IStdPeriph
+    - -IStdPeriph/STM8L15x-16x-05x/Libraries/STM8L15x_StdPeriph_Driver/inc
+    - -IStdPeriph/STM8L10x/Libraries/STM8L10x_StdPeriph_Driver/inc
+    - -IStdPeriph/STM8S/Libraries/STM8S_StdPeriph_Driver/inc
+    # 忽略某些警告（因为SDCC和clang的差异）
+    - -Wno-everything
+  # 移除可能导致问题的SDCC特定标志
+  Remove:
+    - -mstm8
+    - --std-c99
+    - --out-fmt-ihx
+    - --out-fmt-s19
+
+# 诊断配置
+Diagnostics:
+  # 启用所有诊断
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+  # 忽略某些诊断（因为SDCC特定语法）
+  Suppress:
+    - unused-includes
+    - missing-includes
+  # 忽略某些文件
+  IgnoreMacros:
+    - GPIO_Init
+    - GPIO_ToggleBits
+    - GPIO_SetBits
+    - GPIO_ResetBits
+  # clang-tidy 配置：禁用单词拼写错误检查
+  ClangTidy:
+    Add: []
+    Remove:
+      - readability-identifier-naming
+      - readability-identifier-length
+      - readability-magic-numbers
+
+# 索引配置
+Index:
+  # 后台索引
+  Background: Build
+  # 索引标准库
+  StandardLibrary: Yes
+
+# 代码补全
+Completion:
+  # 所有作用域
+  AllScopes: Yes
+
+# 悬停信息
+Hover:
+  ShowAKA: Yes
+
+# 内联提示
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+

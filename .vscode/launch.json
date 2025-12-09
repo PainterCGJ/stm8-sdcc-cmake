@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM8 调试 (需要外部调试器)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/${input:targetName}/${input:targetName}.ihx",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "CMake: 构建"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "targetName",
+            "type": "promptString",
+            "description": "输入目标名称 (例如: stm8l-gpio)",
+            "default": "stm8l-gpio"
+        }
+    ]
+}
+
+

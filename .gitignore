@@ -1,0 +1,42 @@
+# 构建目录
+build/
+.cmake/
+
+# CMake生成文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.cmake
+!cmake/*.cmake
+
+# 编译输出
+*.ihx
+*.hex
+*.bin
+*.rel
+*.lib
+*.lst
+*.map
+*.mem
+*.rst
+*.sym
+*.lk
+*.asm
+
+# IDE文件
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/settings.json
+.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# 临时文件
+*~
+*.swp
+*.swo
+.DS_Store
+
+

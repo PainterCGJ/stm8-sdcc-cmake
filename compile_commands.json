@@ -1,0 +1,7 @@
+﻿[
+  {
+    "directory": "D:/Material/STM8/stm8-sdcc-cmake",
+    "command": "sdcc -mstm8 --std-c99 -DSTM8L05X_MD_VL -D__SDCC__ -Istm8l-gpio -IStdPeriph -IStdPeriph/STM8L15x-16x-05x/Libraries/STM8L15x_StdPeriph_Driver/inc -c \"D:/Material/STM8/stm8-sdcc-cmake/stm8l-gpio/main.c\"",
+    "file": "D:/Material/STM8/stm8-sdcc-cmake/stm8l-gpio/main.c"
+  }
+]

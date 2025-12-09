@@ -1,0 +1,74 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 19,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "stm8l052c6",
+            "displayName": "STM8L052C6 (默认)",
+            "description": "STM8L052C6 芯片配置",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": {
+                    "type": "FILEPATH",
+                    "value": "${sourceDir}/cmake/sdcc-generic.cmake"
+                },
+                "CMAKE_MODULE_PATH": {
+                    "type": "PATH",
+                    "value": "${sourceDir}/cmake"
+                },
+                "STM8_CHIP": {
+                    "type": "STRING",
+                    "value": "stm8l052c6"
+                },
+                "STM8_StdPeriph_DIR": {
+                    "type": "PATH",
+                    "value": "${sourceDir}/source/StdPeriph"
+                }
+            },
+            "environment": {}
+        },
+        {
+            "name": "stm8l-app",
+            "displayName": "STM8L052C6 - App示例",
+            "description": "构建 stm8l-app 示例项目",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/stm8l-app",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": {
+                    "type": "FILEPATH",
+                    "value": "${sourceDir}/cmake/sdcc-generic.cmake"
+                },
+                "CMAKE_MODULE_PATH": {
+                    "type": "PATH",
+                    "value": "${sourceDir}/cmake"
+                },
+                "STM8_CHIP": {
+                    "type": "STRING",
+                    "value": "stm8l052c6"
+                },
+                "STM8_StdPeriph_DIR": {
+                    "type": "PATH",
+                    "value": "${sourceDir}/source/StdPeriph"
+                }
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default",
+            "displayName": "默认构建",
+            "configurePreset": "stm8l052c6"
+        },
+        {
+            "name": "app",
+            "displayName": "构建 App 示例",
+            "configurePreset": "stm8l-app"
+        }
+    ]
+}
+
