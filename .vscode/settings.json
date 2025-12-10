@@ -62,7 +62,7 @@
     },
     
     // Code Spell Checker 配置（如果安装了该扩展）
-    "cSpell.enabled": true,
+    "cSpell.enabled": false,
     "cSpell.language": "en",
     "cSpell.words": [
         // STM8 GPIO 相关
