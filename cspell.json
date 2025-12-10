@@ -28,7 +28,9 @@
     "SetBits",
     "ResetBits",
     "ReadInputData",
-    "ReadOutputData"
+    "ReadOutputData",
+    "USART",
+    "USART1"
   ],
   "ignoreWords": [
     "GPIOE",
